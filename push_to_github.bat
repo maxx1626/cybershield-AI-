@@ -6,13 +6,21 @@ echo Pushing CYBERSHIELD AI to https://github.com/maxx1626/cybershield-AI-
 echo ========================================================
 echo Staging and committing any recent changes...
 git add .
-git commit -m "feat: complete CYBERSHIELD AI 3D cybersecurity platform" 2>nul
+git commit -m "update: latest changes" 2>nul
 echo.
-echo Pushing to remote main branch (overwriting initial blank GitHub README)...
-git push -u origin main --force
+echo Pushing to GitHub main branch...
+git push -u origin main
 echo.
-echo ========================================================
-echo Done! Check your repository at:
-echo https://github.com/maxx1626/cybershield-AI-
-echo ========================================================
+if %ERRORLEVEL% equ 0 (
+    echo ========================================================
+    echo SUCCESS! Repository updated:
+    echo https://github.com/maxx1626/cybershield-AI-
+    echo ========================================================
+) else (
+    echo ========================================================
+    echo PUSH REQUIRES AUTHENTICATION.
+    echo If a browser or login prompt appeared, complete sign-in.
+    echo Or run: git push https://<PAT>@github.com/maxx1626/cybershield-AI-.git main
+    echo ========================================================
+)
 pause
